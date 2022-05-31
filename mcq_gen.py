@@ -20,6 +20,8 @@ from ml_models.sense2vec_distractor_generation.sense2vec_generator import \
 from ml_models.summerizer_generation.summerizer_generator import \
     SummerizerGenerator
 from question import Question
+
+
 #%%
 class MCQGenerator():
     def __init__(self,is_verbose=False):
@@ -54,11 +56,11 @@ class MCQGenerator():
                          'question', 
                          'answer',
                          'distractors']## distractors list?? 아니면 d1, d2, d3, d4??
-
-        full_txt= 'zzzzzzzzzzzzzzzz' ##sql에서 paragrapgh num 에 맞게 읽어오기
-        cleaned_txt=clean_text(full_txt)
+        
         '''
-        ## 함수 만들면 요로코롬 한다는 뜻
+        full_txt=  ##sql에서 paragrapgh num 에 맞게 읽어오기
+        cleaned_txt=clean_text(full_txt)
+        
         q=question(full_txt, question_type)
         a=ans(full_txt)
         d=distractors(full_txt, q)
@@ -66,8 +68,8 @@ class MCQGenerator():
         q='asdfasdfasdfasdfasdf'
         a='aa'
         d=['zz', 'xx', 'bb', 'cc']##일단 리스트로 한다고 치자
-        
-        result=[full_txt, question_type, q, a, d]
+
+        result=[paragraph_num, question_type, q, a, d]
         MCQ={ x:y for x,y in zip(question_table,result)}
         
         return MCQ
@@ -75,5 +77,6 @@ class MCQGenerator():
     ## 문제 답 오답 무엇을 먼저 만들지에 따라 매개변수 변할 듯
     ## 일단은 question_type에 따라 따로 돌려야 하나 아무튼 ..
     def question(self, full_txt, question_type):
+        
     def ans(self, full_txt):
     def distractors(self, context, question):
