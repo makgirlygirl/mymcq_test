@@ -64,9 +64,7 @@ class QGModel(pl.LightningModule):
 class QuestionGenerator():
     def __init__(self):
         self.tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
-        # print('tokenizer len before: ', len(self.tokenizer))
         self.tokenizer.add_tokens(SEP_TOKEN)
-        # print('tokenizer len after: ', len(self.tokenizer))
         self.tokenizer_len = len(self.tokenizer)
 
         checkpoint_path = '/home/Leaf-Question-Generation/app/ml_models/question_generation/models/multitask-qg-ag.ckpt'
