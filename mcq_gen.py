@@ -41,7 +41,7 @@ class MCQGenerator():
         self.distractor_generator = SummerizerGenerator()
         print('Loaded SummerizerGenerator in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
 
-    def final(self, full_txt, question_type):
+    def final(self, paragraph_num, question_type):
         ## 지문 받아서 문제 만들고
         ## 맨 마지막 딕셔너리 리턴
         ## 문제번호는 언제 정하지 ??
@@ -49,33 +49,31 @@ class MCQGenerator():
         ## 몇 개 만드는지는?? 아모르겠눙 ㅇㅅㅇ
 
         ## question_table: sql에 들어갈것
-        question_table=['full txt',# 지문번호로 바뀔예정
+        question_table=['paragraph_num',
                          'question type',
                          'question', 
                          'answer',
                          'distractors']## distractors list?? 아니면 d1, d2, d3, d4??
+
+        full_txt= 'zzzzzzzzzzzzzzzz' ##sql에서 paragrapgh num 에 맞게 읽어오기
         cleaned_txt=clean_text(full_txt)
-
-        ###### 이부분 모델 완성하면 코딩 ~~~~~
-
-        q='asdfasdfasdfasdfasdf'
-        a='aa'
-        d=['zz', 'xx', 'bb', 'cc']##일단 리스트로 한다고 치자
-
         '''
         ## 함수 만들면 요로코롬 한다는 뜻
         q=question(full_txt, question_type)
         a=ans(full_txt)
         d=distractors(full_txt, q)
         '''
-
+        q='asdfasdfasdfasdfasdf'
+        a='aa'
+        d=['zz', 'xx', 'bb', 'cc']##일단 리스트로 한다고 치자
+        
         result=[full_txt, question_type, q, a, d]
         MCQ={ x:y for x,y in zip(question_table,result)}
         
         return MCQ
 
-    ''' # 문제 답 오답 무엇을 먼저 만들지에 따라 매개변수 변할 듯
+    ## 문제 답 오답 무엇을 먼저 만들지에 따라 매개변수 변할 듯
     ## 일단은 question_type에 따라 따로 돌려야 하나 아무튼 ..
     def question(self, full_txt, question_type):
     def ans(self, full_txt):
-    def distractors(self, context, question):'''
+    def distractors(self, context, question):
