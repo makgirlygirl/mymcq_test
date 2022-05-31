@@ -1,10 +1,13 @@
-import pprint
 import itertools
+import pprint
 import re
-import pke
 import string
+
+import pke
 from nltk.corpus import stopwords
-class KeywordGenerataion():
+
+
+class KeywordGenerator():
     def __init__(self):
         self.extractor = pke.unsupervised.MultipartiteRank()
         self.pos = {'PROPN'}

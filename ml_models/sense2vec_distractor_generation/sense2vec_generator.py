@@ -1,8 +1,10 @@
-from sense2vec import Sense2Vec
 from collections import OrderedDict
 from typing import List
 
-class Sense2VecDistractorGeneration():
+from sense2vec import Sense2Vec
+
+
+class Sense2VecDistractorGenerator():
     def __init__(self):
         self.s2v = Sense2Vec().from_disk('/home/Leaf-Question-Generation/app/ml_models/sense2vec_distractor_generation/data/s2v_old')
 

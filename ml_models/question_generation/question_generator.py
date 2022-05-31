@@ -1,21 +1,18 @@
 from logging import NullHandler
-from typing import List, Dict, Tuple
-import tqdm.notebook as tq
-from tqdm.notebook import tqdm
-import pandas as pd
-import numpy as np
-
-import torch
 from pathlib import Path
-from torch.utils.data import Dataset, DataLoader
+from typing import Dict, List, Tuple
+
+import numpy as np
+import pandas as pd
 import pytorch_lightning as pl
+import torch
+import tqdm.notebook as tq
 from pytorch_lightning.callbacks import ModelCheckpoint
 from sklearn.model_selection import train_test_split
-from transformers import (
-    AdamW,
-    T5ForConditionalGeneration,
-    T5TokenizerFast as T5Tokenizer
-    )
+from torch.utils.data import DataLoader, Dataset
+from tqdm.notebook import tqdm
+from transformers import AdamW, T5ForConditionalGeneration
+from transformers import T5TokenizerFast as T5Tokenizer
 
 # Constants
 MODEL_NAME = 't5-small'

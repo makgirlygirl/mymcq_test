@@ -1,5 +1,7 @@
 from summarizer import Summarizer
-class SummerizerGeneration():
+
+
+class SummerizerGenerator():
     def __init__(self):
         self.model = Summarizer()
     def generate(self, full_txt, min_len=-50, max_len=200, num_sentence=1):
