@@ -47,6 +47,8 @@ class MCQGenerator():
         ## 문제번호는 언제 정하지 ??
         ## 문제타입은?? init에서정하는건에바고 음 여기서 매번 QuestionGenerator 다시 로딩해야하나
         ## 몇 개 만드는지는?? 아모르겠눙 ㅇㅅㅇ
+
+        ## question_table: sql에 들어갈것
         question_table=['full txt',# 지문번호로 바뀔예정
                          'question type',
                          'question', 
