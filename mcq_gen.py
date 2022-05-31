@@ -72,8 +72,8 @@ class MCQGenerator():
         
         return MCQ
 
-    ## 문제 답 오답 무엇을 먼저 만들지에 따라 매개변수 변할 듯
+    ''' # 문제 답 오답 무엇을 먼저 만들지에 따라 매개변수 변할 듯
     ## 일단은 question_type에 따라 따로 돌려야 하나 아무튼 ..
     def question(self, full_txt, question_type):
     def ans(self, full_txt):
-    def distractors(self, context, question):
+    def distractors(self, context, question):'''
