@@ -10,8 +10,9 @@ import time
 
 import toolz
 
+### 여기 나중에 수정을 ㅎ보자
 from function import *
-from ml_models.distractor_generation.distractor_generator import \
+from mymcq.ml_models.distractor_generator import \
     DistractorGenerator
 from ml_models.keyword_generation.keyword_generator import KeywordGenerataior
 from ml_models.question_generation.question_generator import QuestionGenerator

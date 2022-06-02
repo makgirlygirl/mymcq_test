@@ -6,19 +6,19 @@ from sense2vec import Sense2Vec
 
 class Sense2VecDistractorGenerator():
     def __init__(self):
-        self.s2v = Sense2Vec().from_disk('/home/Leaf-Question-Generation/app/ml_models/sense2vec_distractor_generation/data/s2v_old')
+        self.model = Sense2Vec().from_disk('/home/Leaf-Question-Generation/app/ml_models/sense2vec_distractor_generation/data/s2v_old')
 
     def generate(self, answer: str, desired_count: int) -> List[str]:
         distractors = []
         answer = answer.lower()
         answer = answer.replace(" ", "_")
 
-        sense = self.s2v.get_best_sense(answer)
+        sense = self.model.get_best_sense(answer)
 
         if not sense:
             return []
 
-        most_similar = self.s2v.most_similar(sense, n=desired_count)
+        most_similar = self.model.most_similar(sense, n=desired_count)
 
         for phrase in most_similar:
             normalized_phrase = phrase[0].split("|")[0].replace("_", " ").lower()
