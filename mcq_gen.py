@@ -12,6 +12,11 @@ import toolz
 
 ### 여기 나중에 수정을 ㅎ보자
 from function import *
+from models import *
+from question import Question
+
+#%%
+'''
 from mymcq.ml_models.distractor_generator import \
     DistractorGenerator
 from ml_models.keyword_generation.keyword_generator import KeywordGenerataior
@@ -19,10 +24,18 @@ from ml_models.question_generation.question_generator import QuestionGenerator
 from ml_models.sense2vec_distractor_generation.sense2vec_generator import \
     Sense2VecDistractorGenerator
 from ml_models.summerizer_generation.summerizer_generator import \
-    SummerizerGenerator
-from question import Question
-
-
+    SummerizerGenerator'''
+#%%
+'''
+내용일치
+어휘
+목적 요지 주제 주장 제목
+빈칸추론
+문장순서
+문장삽입 
+요약문
+장문, 문법, 도표 는 나중에
+'''
 #%%
 class MCQGenerator():
     def __init__(self,is_verbose=False):
@@ -30,19 +43,17 @@ class MCQGenerator():
         print('Loading ML Models...')
 
         # self.question_generator = QuestionGenerator()
-        # print('Loaded QuestionGenerator in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
+        # self.distractor_generator = DistractorGenerator()
+        # self.sense2vec_distractor_generator = Sense2VecDistractorGenerator()
+        # self.keyword_generator = KeywordGenerataior()
+        # self.distractor_generator = SummerizerGenerator()
 
-        self.distractor_generator = DistractorGenerator()
-        print('Loaded DistractorGenerator in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
-
-        self.sense2vec_distractor_generator = Sense2VecDistractorGenerator()
-        print('Loaded Sense2VecDistractorGenerator in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
-
-        self.keyword_generator = KeywordGenerataior()
-        print('Loaded KeywordGenerataior in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
-
-        self.distractor_generator = SummerizerGenerator()
-        print('Loaded SummerizerGenerator in', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
+        self.summerizerGenerator=SummerizerGenerator() # 요약문
+        self.keysentenceGenerator=KeysentenceGenerator() # 중심문장
+        self.keywordGenerator=KeywordGenerator() # 키워드
+        # 오답
+        
+        print('Finish Loading ML Models...', round(time.perf_counter() - start_time, 2), 'seconds.') if is_verbose else ''
 
     def final(self, paragraph_num, question_type):
         ## 지문 받아서 문제 만들고
